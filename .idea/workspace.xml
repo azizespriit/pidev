@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8208f34-ad8c-4944-ad01-fd76f7096a09" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entite/Personne.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/service/IService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/service/PersonneService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/HelloController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/DataSource.java" afterDir="false" />
+    <list default="true" id="c8208f34-ad8c-4944-ad01-fd76f7096a09" name="Changes" comment="s1">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +29,9 @@
     &quot;assignee&quot;: &quot;azizespriit&quot;
   }
 }</component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="b79c9a49-bfb5-4f82-89ac-790c54c2b3df" />
+  </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/azizespriit/pidev.git&quot;,
@@ -66,7 +59,7 @@
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/azizz/IdeaProjects/pidev&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/azizz/Downloads/ProjetPi3A14&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -107,21 +100,25 @@
       <workItem from="1739191705834" duration="2725000" />
       <workItem from="1739194944916" duration="875000" />
       <workItem from="1739195900420" duration="589000" />
+      <workItem from="1739196781650" duration="1077000" />
+      <workItem from="1739197874454" duration="206000" />
     </task>
+    <task id="LOCAL-00001" summary="s1">
+      <option name="closed" value="true" />
+      <created>1739196966005</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1739196966005</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/test/Main.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="s1" />
+    <option name="LAST_COMMIT_MESSAGE" value="s1" />
   </component>
 </project>
