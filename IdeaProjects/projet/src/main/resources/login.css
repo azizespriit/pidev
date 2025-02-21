@@ -1,0 +1,73 @@
+/* Style général pour la page de connexion */
+.login-container {
+  -fx-alignment: center;
+  -fx-padding: 50px;
+  -fx-background-color: #F8E6C9;  /* Couleur de fond */
+  -fx-border-radius: 15px;
+  -fx-border-color: #D96A5E;
+  -fx-border-width: 2px;  /* Contour coloré autour du formulaire */
+}
+
+/* Titre de la page */
+.title-label {
+  -fx-font-size: 24px;
+  -fx-font-weight: bold;
+  -fx-text-fill: #D96A5E;  /* Couleur de texte */
+  -fx-margin-bottom: 20px;
+}
+
+/* Style des champs de texte */
+.input-field {
+  -fx-pref-width: 300px;
+  -fx-padding: 10px;
+  -fx-background-color: #FFEDDB;
+  -fx-border-color: #F4E1D2;
+  -fx-border-radius: 5px;
+  -fx-font-size: 14px;
+  -fx-margin-bottom: 10px;  /* Espacement entre les champs */
+}
+
+/* Effet hover pour les champs de texte */
+.input-field:hover {
+  -fx-border-color: #F8BEA5;  /* Contour coloré au survol */
+}
+
+/* Style du bouton de connexion */
+.login-button {
+  -fx-pref-width: 150px;
+  -fx-padding: 10px;
+  -fx-background-color: #F8BEA5;
+  -fx-border-color: #D96A5E;
+  -fx-border-radius: 5px;
+  -fx-text-fill: #050505;
+  -fx-font-weight: bold;
+  -fx-margin-top: 20px;  /* Espacement entre le bouton et le dernier champ */
+}
+
+/* Effet hover pour le bouton */
+.login-button:hover {
+  -fx-background-color: #D96A5E;
+  -fx-text-fill: white;
+}
+
+/* Style pour le lien d'inscription */
+.register-link {
+  -fx-text-fill: #2F80EC;
+  -fx-cursor: hand;
+  -fx-font-size: 14px;
+  -fx-padding-top: 10px;
+  -fx-font-weight: bold;
+}
+
+/* Style pour les messages d'erreur */
+.error-message {
+  -fx-font-size: 12px;
+  -fx-font-weight: bold;
+  -fx-text-fill: red;
+  -fx-padding-top: 10px;
+}
+
+/* Style pour le lien "Vous n'avez pas de compte ?" lorsqu'il est survolé */
+.register-link:hover {
+  -fx-text-fill: #FF6F61;
+}

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="787.0" prefWidth="722.0"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Controllers.RegisterController"
+            stylesheets="@register_user.css">
+
+  <children>
+    <GridPane hgap="10" vgap="10" layoutX="50.0" layoutY="50.0" alignment="CENTER">
+      <columnConstraints>
+        <ColumnConstraints halignment="RIGHT" />
+        <ColumnConstraints halignment="LEFT" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints vgrow="ALWAYS" />
+        <RowConstraints vgrow="ALWAYS" />
+        <RowConstraints vgrow="ALWAYS" />
+        <RowConstraints vgrow="ALWAYS" />
+        <RowConstraints vgrow="ALWAYS" />
+        <RowConstraints vgrow="ALWAYS" />
+        <RowConstraints vgrow="ALWAYS" />
+      </rowConstraints>
+
+      <!-- Fields Layout -->
+      <Label text="CIN" GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="label-info"/>
+      <TextField fx:id="CinTextFiled" GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="form-control"/>
+
+      <Label text="Nom" GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="label-info"/>
+      <TextField fx:id="NomTextFiled" GridPane.rowIndex="1" GridPane.columnIndex="1" styleClass="form-control"/>
+
+      <Label text="Prénom" GridPane.rowIndex="2" GridPane.columnIndex="0" styleClass="label-info"/>
+      <TextField fx:id="PrenomTextFiled" GridPane.rowIndex="2" GridPane.columnIndex="1" styleClass="form-control"/>
+
+      <Label text="Téléphone" GridPane.rowIndex="3" GridPane.columnIndex="0" styleClass="label-info"/>
+      <TextField fx:id="PhoneTextFiled" GridPane.rowIndex="3" GridPane.columnIndex="1" styleClass="form-control"/>
+
+      <Label text="Email" GridPane.rowIndex="4" GridPane.columnIndex="0" styleClass="label-info"/>
+      <TextField fx:id="emailTextFiled" GridPane.rowIndex="4" GridPane.columnIndex="1" styleClass="form-control"/>
+
+      <Label text="Mot de Passe" GridPane.rowIndex="5" GridPane.columnIndex="0" styleClass="label-info"/>
+      <TextField fx:id="PasswordTextFiled" GridPane.rowIndex="5" GridPane.columnIndex="1" styleClass="form-control"/>
+
+      <!-- Gender Section -->
+      <Label text="Genre" GridPane.rowIndex="6" GridPane.columnIndex="0" styleClass="label-info"/>
+      <HBox spacing="10" GridPane.rowIndex="6" GridPane.columnIndex="1">
+        <CheckBox fx:id="FemmeCheckBox" text="Femme" styleClass="checkbox-primary"/>
+        <CheckBox fx:id="HommeCheckBox" text="Homme" styleClass="checkbox-primary"/>
+      </HBox>
+
+      <!-- Role Section -->
+      <Label text="Rôle" GridPane.rowIndex="7" GridPane.columnIndex="0" styleClass="label-info"/>
+      <HBox spacing="10" GridPane.rowIndex="7" GridPane.columnIndex="1">
+        <CheckBox fx:id="PrestataireCheckBox" text="Prestataire" styleClass="checkbox-primary" onAction="#handlePrestataireCheckBox"/>
+        <CheckBox fx:id="OrganisateurCheckBox" text="Organisateur" styleClass="checkbox-primary" onAction="#handleOrganisateurCheckBox"/>
+      </HBox>
+
+      <!-- Organisateur Specific Fields (Initially Hidden) -->
+      <Label fx:id="YearsOfExperienceLabel" text="Années d'Expérience" visible="false" GridPane.rowIndex="8" GridPane.columnIndex="0" styleClass="label-info"/>
+      <TextField fx:id="YearsOfExperienceTextField" visible="false" GridPane.rowIndex="8" GridPane.columnIndex="1" styleClass="form-control"/>
+
+      <Label fx:id="EventsOrganizedLabel" text="Événements Organisés" visible="false" GridPane.rowIndex="9" GridPane.columnIndex="0" styleClass="label-info"/>
+      <TextField fx:id="EventsOrganizedTextField" visible="false" GridPane.rowIndex="9" GridPane.columnIndex="1" styleClass="form-control"/>
+
+      <!-- Champs spécifiques au prestataire -->
+      <Label fx:id="SpecialtyLabel" text="Spécialité" visible="false" GridPane.rowIndex="10" GridPane.columnIndex="0" styleClass="label-info"/>
+      <TextField fx:id="SpecialtyTextField" visible="false" GridPane.rowIndex="10" GridPane.columnIndex="1" styleClass="form-control"/>
+
+      <Label fx:id="experienceLabel" text="Votre expérience" visible="false" GridPane.rowIndex="11" GridPane.columnIndex="0" styleClass="label-info"/>
+      <TextField fx:id="experienceTextField" visible="false" GridPane.rowIndex="11" GridPane.columnIndex="1" styleClass="form-control"/>
+
+      <!-- Submit Button (Initially Hidden) -->
+      <Button layoutX="247.0" layoutY="655.0" mnemonicParsing="false" text="S'inscrire en tant que Organisateur"
+              fx:id="OrganisateurButton" visible="false" GridPane.rowIndex="12" GridPane.columnIndex="1"
+              onAction="#handleOrganisateurButtonClick" styleClass="btn btn-primary"/>
+
+      <Button layoutX="247.0" layoutY="700.0" mnemonicParsing="false" text="S'inscrire en tant que Prestataire"
+              fx:id="PrestataireButton" visible="false" GridPane.rowIndex="13" GridPane.columnIndex="1"
+              onAction="#handlePrestataireButtonClick" styleClass="btn btn-success"/>
+
+    </GridPane>
+  </children>
+</AnchorPane>

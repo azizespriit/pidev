@@ -1,0 +1,57 @@
+/* General Styles */
+* {
+  -fx-font-family: "Arial";
+  -fx-font-size: 14px;
+}
+
+.label-info {
+  -fx-text-fill: #333333;
+  -fx-font-weight: bold;
+}
+
+.form-control {
+  -fx-background-color: #f7f7f7;
+  -fx-border-color: #cccccc;
+  -fx-border-radius: 4px;
+  -fx-padding: 8px;
+}
+
+.form-control:focused {
+  -fx-border-color: #007bff;
+  -fx-background-color: #ffffff;
+}
+
+.checkbox-primary {
+  -fx-font-weight: bold;
+}
+
+/* Button Styles */
+.btn {
+  -fx-background-color: #007bff;
+  -fx-text-fill: white;
+  -fx-padding: 10px 20px;
+  -fx-font-weight: bold;
+  -fx-background-radius: 4px;
+  -fx-effect: dropshadow(gaussian, #000000, 5, 0.0, 0, 1);
+}
+
+.btn-success {
+  -fx-background-color: #28a745;
+}
+
+.btn-primary {
+  -fx-background-color: #007bff;
+}
+
+.btn:hover {
+  -fx-opacity: 0.9;
+}
+
+/* GridPane Styles */
+.grid-pane {
+  -fx-background-color: #ffffff;
+  -fx-padding: 20px;
+  -fx-border-color: #dddddd;
+  -fx-border-radius: 8px;
+  -fx-background-radius: 8px;
+}

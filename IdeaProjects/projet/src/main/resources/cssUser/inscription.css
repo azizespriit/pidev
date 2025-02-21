@@ -1,0 +1,89 @@
+/* Palette de couleurs */
+:root {
+  --color-1: #F8E6C9;
+  --color-2: #F4E1D2;
+  --color-3: #FFEDDB;
+  --color-4: #F8BEA5;
+  --color-5: #D96A5E;
+}
+
+/* Général */
+* {
+  font-family: 'Arial', sans-serif;
+  box-sizing: border-box;
+}
+
+.anchor-pane {
+  background-color: var(--color-3);
+  padding: 20px;
+}
+
+/* Form controls */
+.form-control {
+  -fx-background-color: var(--color-1);
+  -fx-border-color: var(--color-2);
+  -fx-border-radius: 5px;
+  -fx-padding: 10px;
+  -fx-font-size: 14px;
+  -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.1), 2, 0, 0, 2);
+}
+
+.form-control:hover {
+  -fx-background-color: var(--color-2);
+  -fx-border-color: var(--color-5);
+}
+
+.label-info {
+  -fx-font-size: 14px;
+  -fx-text-fill: var(--color-5);
+  -fx-padding: 5px;
+}
+
+.checkbox-primary {
+  -fx-font-size: 13px;
+  -fx-text-fill: var(--color-5);
+}
+
+.checkbox-primary:selected {
+  -fx-text-fill: var(--color-4);
+}
+
+/* Buttons */
+.btn {
+  -fx-background-radius: 10px;
+  -fx-text-fill: white;
+  -fx-font-size: 14px;
+  -fx-padding: 10px;
+  -fx-cursor: hand;
+}
+
+.btn-primary {
+  -fx-background-color: var(--color-4);
+}
+
+.btn-primary:hover {
+  -fx-background-color: var(--color-5);
+}
+
+.btn-success {
+  -fx-background-color: var(--color-2);
+}
+
+.btn-success:hover {
+  -fx-background-color: var(--color-4);
+}
+
+/* Specific elements for organiser and prestataire */
+#YearsOfExperienceLabel, #EventsOrganizedLabel, #SpecialtyLabel, #experienceLabel {
+  -fx-font-size: 14px;
+  -fx-text-fill: var(--color-4);
+}
+
+/* Additional spacing and styling */
+.grid-pane {
+  margin-top: 20px;
+}
+
+hbox {
+  padding: 10px;
+}

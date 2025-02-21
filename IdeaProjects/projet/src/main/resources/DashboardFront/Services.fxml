@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            prefWidth="600" prefHeight="400">
+
+  <TextField fx:id="eventTextField" layoutX="50.0" layoutY="50.0" prefWidth="500.0" promptText="Entrez un Service"/>
+
+  <Button text="Valider" layoutX="250.0" layoutY="150.0" fx:id="validateButton"/>
+
+</AnchorPane>

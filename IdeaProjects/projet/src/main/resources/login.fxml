@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="15" styleClass="login-container" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LoginController">
+   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+
+  <!-- Titre de la page -->
+  <Label styleClass="title-label" text="Connexion" />
+
+  <!-- Champ pour l'email -->
+  <TextField fx:id="emailField" promptText="Email" styleClass="input-field" />
+
+  <!-- Champ pour le mot de passe -->
+  <PasswordField fx:id="passwordField" promptText="Mot de passe" styleClass="input-field" />
+
+  <!-- Bouton de connexion -->
+  <Button onAction="#handleLogin" styleClass="login-button" text="Se connecter" />
+
+  <!-- Lien pour ouvrir le formulaire d'inscription -->
+  <Label onMouseClicked="#openRegisterForm" styleClass="register-link" text="Vous n'avez pas de compte ?" />
+   <Label onMouseClicked="#openForgetForm" styleClass="register-link" text="Mot de passe oublié ?" />
+
+  <!-- Message d'erreur, s'il y en a -->
+  <Label fx:id="errorLabel" styleClass="error-message" textFill="red" />
+   <ImageView fitHeight="150.0" fitWidth="200.0">
+      <image>
+         <Image url="@../../../../../OneDrive/Bureau/abstract-design.jpg" />
+      </image>
+   </ImageView>
+
+</VBox>

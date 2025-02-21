@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            prefHeight="1080.0" prefWidth="1920.0" stylesheets="@/DashboardFront/DashbaordDesign.css" fx:controller="Controllers.MainController">
+
+  <!-- Sidebar (Menu) -->
+  <AnchorPane fx:id="sidebar" prefWidth="320.0" prefHeight="1080.0" styleClass="sidebar">
+    <VBox spacing="60" layoutX="20.0" layoutY="0.0" styleClass="menu" alignment="CENTER">
+
+      <!-- Logo -->
+      <ImageView fx:id="logo" fitWidth="180" fitHeight="180">
+        <Image url="@/images/logo.png"/>
+        <VBox.margin>
+          <Insets top="-30" bottom="20"/>
+        </VBox.margin>
+      </ImageView>
+
+      <!-- Gestion Événements -->
+      <Button text="Événements" styleClass="menu-button" onAction="#handleButtonAction">
+        <graphic>
+          <ImageView fitWidth="35" fitHeight="35">
+            <Image url="@/images/event.png"/>
+          </ImageView>
+        </graphic>
+      </Button>
+
+      <!-- Gestion Services -->
+      <Button text="Services" styleClass="menu-button" onAction="#handleButtonAction">
+        <graphic>
+          <ImageView fitWidth="35" fitHeight="35">
+            <Image url="@/images/service.png"/>
+          </ImageView>
+        </graphic>
+      </Button>
+
+      <!-- Gestion Produits -->
+      <Button text="Produits" styleClass="menu-button" onAction="#handleButtonAction">
+        <graphic>
+          <ImageView fitWidth="35" fitHeight="35">
+            <Image url="@/images/service.png"/>
+          </ImageView>
+        </graphic>
+      </Button>
+
+      <!-- Gestion Equipement -->
+      <Button text="Équipements" styleClass="menu-button" onAction="#handleButtonAction">
+        <graphic>
+          <ImageView fitWidth="35" fitHeight="35">
+            <Image url="@/images/cart.png"/>
+          </ImageView>
+        </graphic>
+      </Button>
+
+      <!-- Gestion Reservation -->
+      <Button text="Reserver Équipements" styleClass="menu-button" onAction="#handleButtonAction">
+        <graphic>
+          <ImageView fitWidth="35" fitHeight="35">
+            <Image url="@/images/cart.png"/>
+          </ImageView>
+        </graphic>
+      </Button>
+
+      <!-- Gestion Panier -->
+      <Button text="Panier" styleClass="menu-button" onAction="#handleButtonAction">
+        <graphic>
+          <ImageView fitWidth="35" fitHeight="35">
+            <Image url="@/images/cart.png"/>
+          </ImageView>
+        </graphic>
+      </Button>
+
+      <!-- Gestion Réclamation -->
+      <Button text="Réclamation" styleClass="menu-button" onAction="#handleButtonAction">
+        <graphic>
+          <ImageView fitWidth="35" fitHeight="35">
+            <Image url="@/images/claim.png"/>
+          </ImageView>
+        </graphic>
+      </Button>
+      <Button text="Déconnexion" styleClass="logout-button" onAction="#handleLogout" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0"/>
+    </VBox>
+
+
+  </AnchorPane>
+
+  <!-- Contenu Principal -->
+  <AnchorPane fx:id="mainContent" layoutX="320.0" prefWidth="1600.0" prefHeight="1080.0" styleClass="content">
+    <!-- Le contenu dynamique s'affichera ici -->
+  </AnchorPane>
+
+</AnchorPane>

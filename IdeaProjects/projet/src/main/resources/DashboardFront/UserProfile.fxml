@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="Controllers.UserProfileController"
+      spacing="10" alignment="CENTER" styleClass="content-box">
+
+  <Label text="Profil Utilisateur" styleClass="title"/>
+  <Label fx:id="userNameLabel" text="Nom : " />
+  <Label fx:id="userEmailLabel" text="Email : " />
+  <Label fx:id="userRoleLabel" text="Rôle : " />
+  <Label fx:id="userExtraInfoLabel" text="Détails supplémentaires : " />
+</VBox>
