@@ -18,11 +18,11 @@ public class commentaireService implements Crud<commentaire> {
 
     @Override
     public void create(commentaire com) throws Exception {
-        String requete = "INSERT INTO commentaire (Id_pub, contenu, date_commentaire) VALUES (?, ?, ?, NOW())";
+        String requete = "INSERT INTO commentaire (Id_pub, contenu, datee) VALUES (?, ?, NOW())";
         try {
             pst = cnx.prepareStatement(requete);
-            pst.setInt(1, com.getId_pub());
-            pst.setString(3, com.getContenu());
+            pst.setInt(1, com.getId_pub());  // Premier paramètre (Id_pub)
+            pst.setString(2, com.getContenu()); // Deuxième paramètre (contenu)
 
             int rowsInserted = pst.executeUpdate();
             if (rowsInserted > 0) {
@@ -35,9 +35,10 @@ public class commentaireService implements Crud<commentaire> {
         }
     }
 
+
     @Override
     public void update(commentaire com) throws Exception {
-        String requete = "UPDATE commentaire SET contenu = ?, date_commentaire = NOW() WHERE id = ?";
+        String requete = "UPDATE commentaire SET contenu = ?, datee = NOW() WHERE id = ?";
         try {
             pst = cnx.prepareStatement(requete);
             pst.setString(1, com.getContenu());
@@ -73,7 +74,7 @@ public class commentaireService implements Crud<commentaire> {
     @Override
     public List<commentaire> getAll() throws Exception {
         List<commentaire> list = new ArrayList<>();
-        String requete = "SELECT id, Id_pub, contenu, date_commentaire FROM commentaire";
+        String requete = "SELECT id, Id_pub, contenu, datee FROM commentaire";
         try {
             pst = cnx.prepareStatement(requete);
             rs = pst.executeQuery();
@@ -83,7 +84,7 @@ public class commentaireService implements Crud<commentaire> {
                         rs.getInt("id"),
                         rs.getInt("Id_pub"),
                         rs.getString("contenu"),
-                        rs.getTimestamp("date_commentaire").toLocalDateTime()
+                        rs.getTimestamp("datee").toLocalDateTime()
                 ));
             }
         } catch (SQLException e) {
@@ -93,7 +94,7 @@ public class commentaireService implements Crud<commentaire> {
     }
     public List<commentaire> getCommentairesByPublication(int idPub) throws Exception {
         List<commentaire> list = new ArrayList<>();
-        String requete = "SELECT id, Id_pub, contenu, date_commentaire FROM commentaire WHERE Id_pub = ?";
+        String requete = "SELECT id, Id_pub, contenu, datee FROM commentaire WHERE Id_pub = ?";
 
         try (PreparedStatement pst = cnx.prepareStatement(requete)) {
             pst.setInt(1, idPub);
@@ -103,7 +104,7 @@ public class commentaireService implements Crud<commentaire> {
                             rs.getInt("id"),
                             rs.getInt("Id_pub"),
                             rs.getString("contenu"),
-                            rs.getTimestamp("date_commentaire").toLocalDateTime()
+                            rs.getTimestamp("datee").toLocalDateTime()
                     ));
                 }
             }

@@ -1,12 +1,16 @@
 package Controllers;
 
 import javafx.geometry.Insets;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import models.publication;
+import services.reactionService;
 
 import java.io.File;
 
@@ -15,8 +19,16 @@ public class publicationCell extends ListCell<publication> {
     private final ImageView imageView;
     private final Text contenuText;
     private final Text descriptionText;
+    private final Label dateLabel; // ✅ Ajout du label pour la date
 
-    // 📌 Définir le chemin absolu de l’image par défaut
+    private final Button btnLike;
+    private final Label lblLikes;
+    private final Button btnDislike;
+    private final Label lblDislikes;
+
+    private final reactionService reactionService = new reactionService();
+    private final int currentUserId = 1; // Simule un utilisateur connecté
+
     private static final String DEFAULT_IMAGE_PATH = System.getProperty("user.home") + "/SportifyImages/default.jpg";
 
     public publicationCell() {
@@ -31,8 +43,22 @@ public class publicationCell extends ListCell<publication> {
         descriptionText = new Text();
         descriptionText.setStyle("-fx-font-size: 12px; -fx-text-fill: gray;");
 
-        content = new VBox(10, imageView, contenuText, descriptionText);
+        dateLabel = new Label(); // ✅ Initialisation de la date
+        dateLabel.setStyle("-fx-font-size: 12px; -fx-text-fill: grey;");
+
+        btnLike = new Button("👍");
+        lblLikes = new Label("0");
+        btnDislike = new Button("👎");
+        lblDislikes = new Label("0");
+
+        HBox reactionBox = new HBox(10, btnLike, lblLikes, btnDislike, lblDislikes);
+        reactionBox.setPadding(new Insets(5, 0, 0, 0));
+
+        content = new VBox(10, imageView, contenuText, descriptionText, dateLabel, reactionBox); // ✅ Ajout de la date
         content.setPadding(new Insets(10));
+
+        btnLike.setOnAction(event -> handleReaction("like"));
+        btnDislike.setOnAction(event -> handleReaction("dislike"));
     }
 
     @Override
@@ -42,40 +68,43 @@ public class publicationCell extends ListCell<publication> {
         if (empty || pub == null) {
             setGraphic(null);
         } else {
-            String imagePath = pub.getImageUrl();
+            String imagePath = pub.getImagePath();
             Image image = null;
-
-            System.out.println(" Chargement de l'image : " + imagePath); // Debugging
-
             if (imagePath != null && !imagePath.isEmpty()) {
                 File file = new File(imagePath);
                 if (file.exists()) {
-                    System.out.println(" Image trouvée : " + file.toURI().toString());
                     image = new Image(file.toURI().toString());
                 } else {
-                    System.out.println(" Image non trouvée, chargement de l'image par défaut.");
-                    File defaultImageFile = new File(DEFAULT_IMAGE_PATH);
-                    if (defaultImageFile.exists()) {
-                        image = new Image(defaultImageFile.toURI().toString());
-                    } else {
-                        System.out.println(" Image par défaut introuvable !");
-                    }
+                    image = new Image(new File(DEFAULT_IMAGE_PATH).toURI().toString());
                 }
             } else {
-                System.out.println(" Aucun chemin d’image fourni. Utilisation de l’image par défaut.");
-                File defaultImageFile = new File(DEFAULT_IMAGE_PATH);
-                if (defaultImageFile.exists()) {
-                    image = new Image(defaultImageFile.toURI().toString());
-                } else {
-                    System.out.println(" Image par défaut introuvable !");
-                }
+                image = new Image(new File(DEFAULT_IMAGE_PATH).toURI().toString());
             }
-
             imageView.setImage(image);
+
             contenuText.setText("📝 " + pub.getContenu());
             descriptionText.setText("📜 " + pub.getDescription());
 
+            dateLabel.setText("📅 " + pub.getdate_pub()); // ✅ Mise à jour de la date affichée
+
+            updateReactions(pub.getId());
+
             setGraphic(content);
         }
+    }
+
+    private void handleReaction(String type) {
+        if (getItem() != null) {
+            reactionService.ajouterReaction(currentUserId, getItem().getId(), type);
+            updateReactions(getItem().getId());
+        }
+    }
+
+    private void updateReactions(int publicationId) {
+        int likes = reactionService.countReactions(publicationId, "like");
+        int dislikes = reactionService.countReactions(publicationId, "dislike");
+
+        lblLikes.setText(String.valueOf(likes));
+        lblDislikes.setText(String.valueOf(dislikes));
     }
 }

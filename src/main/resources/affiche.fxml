@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="501.0" prefWidth="738.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.affiche">
+<AnchorPane prefHeight="724.0" prefWidth="996.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.affiche">
 
    <!-- Titre en haut -->
-   <Label layoutX="73.0" layoutY="20.0" text="Publications" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+   <Label layoutX="73.0" layoutY="20.0" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Publications" />
+   <TextField fx:id="searchField" layoutX="746.0" layoutY="23.0" />
+   <Button layoutX="661.0" layoutY="23.0" onAction="#handleRecherche" text="Recherche" />
+   <ListView fx:id="listViewPublications" layoutX="50.0" layoutY="70.0" />
 
    <!-- Liste des publications -->
-   <ListView fx:id="All" layoutX="73.0" layoutY="58.0" prefHeight="320" prefWidth="590" stylesheets="@style.css" />
+   <ListView fx:id="All" layoutX="54.0" layoutY="69.0" opacity="0.76" prefHeight="504.0" prefWidth="766.0" stylesheets="@style.css" />
 
    <!-- Boutons -->
-   <Button fx:id="ajouter" layoutX="125.0" layoutY="400.0" onAction="#handleAjouter" prefHeight="26.0" prefWidth="71.0" text="Ajouter" textFill="#df1a1a" />
-   <Button fx:id="commentButton" layoutX="248.0" layoutY="400.0" onAction="#handleCommenter" text="Commenter" textFill="#ec1313" />
-   <Button fx:id="mod" layoutX="382.0" layoutY="399.0" onAction="#handleModifier" prefHeight="26.0" prefWidth="79.0" text="Modifier" textFill="#e71717" />
-   <Button fx:id="supp" layoutX="508.0" layoutY="400.0" onAction="#handleSupprimer" prefHeight="26.0" prefWidth="79.0" text="Supprimer" textFill="#e41a1a" />
+   <Button fx:id="ajouter" layoutX="80.0" layoutY="586.0" onAction="#handleAjouter" prefHeight="26.0" prefWidth="71.0" text="Ajouter" textFill="#df1a1a" />
+   <Button fx:id="commentButton" layoutX="214.0" layoutY="586.0" onAction="#handleCommenter" text="Commenter" textFill="#ec1313" />
+   <Button fx:id="mod" layoutX="359.0" layoutY="586.0" onAction="#handleModifier" prefHeight="26.0" prefWidth="79.0" text="Modifier" textFill="#e71717" />
+   <Button fx:id="supp" layoutX="485.0" layoutY="586.0" onAction="#handleSupprimer" prefHeight="26.0" prefWidth="79.0" text="Supprimer" textFill="#e41a1a" />
+
+
 </AnchorPane>

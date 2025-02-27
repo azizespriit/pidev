@@ -7,16 +7,16 @@ public class commentaire{
     private int id;
     private int Id_pub;
     private String contenu;
-    private LocalDateTime date_commentaire;;
+    private LocalDateTime datee;;
 
     public commentaire() {
     }
 
-    public commentaire(int id, int Id_pub, String contenu, LocalDateTime date_commentaire) {
+    public commentaire(int id, int Id_pub, String contenu, LocalDateTime datee) {
         this.id = id;
         this.Id_pub = Id_pub;
         this.contenu = contenu;
-        this.date_commentaire = date_commentaire;
+        this.datee = datee;
     }
 
 
@@ -47,11 +47,11 @@ public class commentaire{
     }
 
     public LocalDateTime getDate_commentaire() {
-        return date_commentaire;
+        return datee;
     }
 
     public void setDate_commentaire(LocalDateTime date_commentaire) {
-        this.date_commentaire = date_commentaire;
+        this.datee = date_commentaire;
     }
 
     @Override
@@ -60,7 +60,7 @@ public class commentaire{
                 "id=" + id +
                 ", Id_pub=" + Id_pub +
                 ", contenu='" + contenu + '\'' +
-                ", date_commentaire=" + date_commentaire +
+                ", date_commentaire=" + datee +
                 '}';
     }
 }

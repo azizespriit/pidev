@@ -2,6 +2,8 @@ package services;
 
 import models.publication;
 import utils.MyDb;
+import utils.notifications;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,13 +21,15 @@ public class publicationService implements Crud<publication> {
         String requete = "INSERT INTO publication (imageUrl, contenu, date_pub, description) VALUES (?, ?, NOW(), ?)";
 
         try (PreparedStatement pst = cnx.prepareStatement(requete)) {
-            pst.setString(1, pub.getImageUrl());
+            pst.setString(1, pub.getImagePath());
             pst.setString(2, pub.getContenu());
             pst.setString(3, pub.getDescription());
 
             int rowsInserted = pst.executeUpdate();
             if (rowsInserted > 0) {
                 System.out.println(" Publication ajoutée avec succès !");
+                notifications.showNotification("Nouvelle pub" , "votre pub est ajoutée avec succè" );
+
             } else {
                 System.out.println("️ Aucune ligne insérée.");
             }
@@ -40,7 +44,7 @@ public class publicationService implements Crud<publication> {
         String requete = "UPDATE publication SET imageUrl = ?, contenu = ?, date_pub = NOW(), description = ? WHERE Id_pub = ?";
 
         try (PreparedStatement pst = cnx.prepareStatement(requete)) {
-            pst.setString(1, pub.getImageUrl());
+            pst.setString(1, pub.getImagePath());
             pst.setString(2, pub.getContenu());
             pst.setString(3, pub.getDescription());
             pst.setInt(4, pub.getId());
@@ -99,4 +103,30 @@ public class publicationService implements Crud<publication> {
         }
         return list;
     }
+
+    public List<publication> rechercherPublicationsParContenu(String keyword) {
+        List<publication> publications = new ArrayList<>();
+        String sql = "SELECT * FROM publication WHERE contenu LIKE ?";
+
+        try (PreparedStatement stmt = cnx.prepareStatement(sql)) {
+
+            stmt.setString(1, "%" + keyword + "%"); // Recherche partielle
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                publication pub = new publication(
+                        rs.getString("contenu"),
+                        rs.getString("description"),
+                        rs.getString("imageUrl") // Adapte selon tes colonnes
+                );
+                publications.add(pub);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return publications;
+    }
+
+
 }

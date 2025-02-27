@@ -14,6 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <!-- ✅ Un seul bloc dependencies -->
     <dependencies>
         <dependency>
             <groupId>com.mysql</groupId>
@@ -30,6 +31,22 @@
             <artifactId>javafx-controls</artifactId>
             <version>21.0.2</version>
         </dependency>
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>4.10.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.mopano/hibernate-array-contributor -->
+        <dependency>
+            <groupId>com.mopano</groupId>
+            <artifactId>hibernate-json-org-contributor</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+
+
+
     </dependencies>
 
     <build>
@@ -44,4 +61,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

@@ -11,36 +11,38 @@
 <GridPane alignment="CENTER" hgap="10" style="-fx-padding: 20px;" stylesheets="@style.css" vgap="10" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.commentaireC">
 
     <!-- Liste des commentaires -->
-    <ListView fx:id="listViewCommentaires" prefHeight="200" prefWidth="300" GridPane.rowIndex="5" GridPane.rowSpan="3" />
+    <ListView fx:id="listViewCommentaires" prefHeight="200.0" prefWidth="250.0" GridPane.rowIndex="5" GridPane.rowSpan="3" />
 
     <!-- Champ de texte pour le commentaire -->
     <TextField fx:id="txtCommentaire" promptText="Écrire un commentaire..." GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
     <!-- Boutons d'action -->
-    <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="1">
+    <HBox fx:id="commentContainer" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="1">
         <Button fx:id="btnAjouter" onAction="#ajouterCommentaire" text="Ajouter" />
         <Button fx:id="btnModifier" onAction="#modifierCommentaire" text="Modifier" />
         <Button fx:id="btnSupprimer" onAction="#supprimerCommentaire" text="Supprimer" />
     </HBox>
-   <columnConstraints>
-      <ColumnConstraints />
-      <ColumnConstraints />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-   </rowConstraints>
+
+    <columnConstraints>
+        <ColumnConstraints />
+        <ColumnConstraints />
+    </columnConstraints>
+
+    <rowConstraints>
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+    </rowConstraints>
 
 </GridPane>

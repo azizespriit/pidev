@@ -17,31 +17,45 @@ public class Modification {
     private TextField imageUrlField;
 
     private publication selectedPublication;
-    private publicationService pubService = new publicationService();
+    private final publicationService pubService = new publicationService();
 
     // Initialisation avec la publication sélectionnée
     public void setPublication(publication selectedPub) {
-        this.selectedPublication = selectedPub;
-        // Pré-remplir les champs avec les données actuelles de la publication
-        contenuField.setText(selectedPub.getContenu());
-        descriptionField.setText(selectedPub.getDescription());
-        imageUrlField.setText(selectedPub.getImageUrl());
+        if (selectedPub != null) {
+            this.selectedPublication = selectedPub;
+            System.out.println("Publication sélectionnée : ID = " + selectedPub.getId());
+            contenuField.setText(selectedPub.getContenu());
+            descriptionField.setText(selectedPub.getDescription());
+            imageUrlField.setText(selectedPub.getImagePath());
+        } else {
+            System.out.println(" Erreur : Aucune publication sélectionnée.");
+        }
     }
 
+
     // Méthode pour enregistrer les modifications
+
     @FXML
     private void handleSave() {
         if (selectedPublication != null) {
+            System.out.println("🔍 Avant mise à jour : " + selectedPublication.getId());
+            System.out.println("Contenu : " + contenuField.getText());
+            System.out.println("Description : " + descriptionField.getText());
+            System.out.println("Image path: " + imageUrlField.getText());
+
             // Mettre à jour les attributs de la publication
             selectedPublication.setContenu(contenuField.getText());
             selectedPublication.setDescription(descriptionField.getText());
-            selectedPublication.setImageUrl(imageUrlField.getText());
+            selectedPublication.setImagePath(imageUrlField.getText());
 
             try {
-                pubService.update(selectedPublication);  // Appel au service pour mettre à jour la publication dans la base de données
+                System.out.println("🚀 Tentative de mise à jour...");
+                pubService.update(selectedPublication);  // Appel au service pour mise à jour
+                System.out.println("✅ Mise à jour réussie !");
                 showInfo("Succès", "Publication modifiée avec succès.");
             } catch (Exception e) {
-                showError("Erreur", "Impossible de modifier la publication.");
+                e.printStackTrace();
+                showError("Erreur", "Impossible de modifier la publication : " + e.getMessage());
             }
         } else {
             showError("Erreur", "Veuillez sélectionner une publication.");

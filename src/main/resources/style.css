@@ -1,7 +1,7 @@
 /* Style général de l'interface */
 .tab-pane {
     -fx-background-color: #2F3E4E;
-    -fx-background-image: url("pidev.png");
+    -fx-background-image: url("back.jpg");
     -fx-background-size: cover;
     -fx-background-position: center;
     -fx-background-repeat: no-repeat;
