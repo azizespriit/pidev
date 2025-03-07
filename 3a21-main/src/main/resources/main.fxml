@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainController">
+  
+    <left>
+        <VBox fx:id="sideMenu" styleClass="sidebar" stylesheets="@style.css">
+            <Button onAction="#afficherProduits" text="Produits" />
+            <Button onAction="#afficherPaniers" text="Paniers" />
+            <Button onAction="#afficherCommandes" text="Commandes" />
+        </VBox>
+    </left>
+    <center>
+        <Pane fx:id="mainContent" styleClass="main-pane" />
+    </center>
+</BorderPane>
